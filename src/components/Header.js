@@ -7,6 +7,8 @@ import { addUser, removeUser } from "../utils/userSlice";
 import { Logo, SUPPORTED_LANGUAGES } from "../utils/constants";
 import { toggleGptSearchView } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configSlice";
+import { BsSearch } from "react-icons/bs";
+import { FaHome } from "react-icons/fa";
 
 const Header = () => {
   const user = useSelector((store) => store.user);
@@ -87,7 +89,11 @@ const Header = () => {
             className=" rounded-lg px-2 mx-4 h-[32px] text-white bg-red-700 text-2xl hover:bg-purple-300"
             onClick={handleGptSearchClick}
           >
-            {showGptSearch ? "🏚️" : "🔍"}
+            {showGptSearch ? (
+              <FaHome className="text-2xl" />
+            ) : (
+              <BsSearch className="text-2xl" />
+            )}
           </button>
           <img
             className="hidden md:block w-12 h-12 rounded-lg"

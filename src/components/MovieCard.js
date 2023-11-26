@@ -1,12 +1,18 @@
-import React from "react";
 import { IMG_CDN_URL } from "../utils/constants";
-
-const MovieCard = ({ posterPath }) => {
+import { Link } from "react-router-dom";
+// eslint-disable-next-line react/prop-types
+const MovieCard = ({ posterPath, id }) => {
   if (!posterPath) return null;
-
+  if (!id) return null;
   return (
-    <div className=" w-36 md:w-48 pr-4 hover:scale-110 transition duration-500">
-      <img className="rounded-lg" alt="movie" src={IMG_CDN_URL + posterPath} />
+    <div className=" w-36 md:w-48   mr-4">
+      <Link to={"/browse/" + id}>
+        <img
+          className="rounded-xl md:hover:scale-95"
+          src={IMG_CDN_URL + posterPath}
+          alt="movie poster make it dynamic"
+        />
+      </Link>
     </div>
   );
 };

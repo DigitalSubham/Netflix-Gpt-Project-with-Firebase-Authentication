@@ -15,7 +15,7 @@ const Body = () => {
       element: <Browse />,
     },
     {
-      path: "/:id",
+      path: "/browse/:movieId",
       element: <EachMovie />,
     },
   ]);
