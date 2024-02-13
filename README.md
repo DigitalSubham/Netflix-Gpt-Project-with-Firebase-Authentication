@@ -1,4 +1,4 @@
-# StreamSage: AI Movie Explorer
+# StreamSage: AI Movie Explorer -> **[Demo](https://stream-sage-ai-movie-explorer.vercel.app/)**
 
 Welcome to StreamSage, your AI-powered Movie Explorer! StreamSage is a feature-rich web-based video streaming platform that combines Firebase authentication, AI movie search capabilities, and a sleek user interface powered by ReactJS, Redux, Tailwind CSS, and GPT.
 
