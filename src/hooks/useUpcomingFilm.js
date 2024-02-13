@@ -12,6 +12,7 @@ const useUpcomingMovies = () => {
     if (!upcomingMovies) {
       getupcomingMovies();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getupcomingMovies = async () => {

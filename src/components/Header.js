@@ -4,7 +4,8 @@ import { onAuthStateChanged, signOut } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { addUser, removeUser } from "../utils/userSlice";
-import { Logo, SUPPORTED_LANGUAGES } from "../utils/constants";
+import { SUPPORTED_LANGUAGES } from "../utils/constants";
+import Logo from "../assets/StreamSage.png";
 import { toggleGptSearchView } from "../utils/gptSlice";
 import { changeLanguage } from "../utils/configSlice";
 import { BsSearch } from "react-icons/bs";
@@ -52,6 +53,7 @@ const Header = () => {
     return () => {
       unsubscribe();
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleGptSearchClick = () => {

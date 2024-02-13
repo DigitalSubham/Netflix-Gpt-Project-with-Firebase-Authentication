@@ -30,6 +30,7 @@ const EachMovie = () => {
     }
     getEachMovieData();
     fetchMovieVideo();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const fetchMovieVideo = async () => {

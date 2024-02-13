@@ -13,6 +13,7 @@ const useNowPlayingMovies = () => {
     if (!nowPlayingMovies) {
       getNowPlayingMovies();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const getNowPlayingMovies = async () => {
