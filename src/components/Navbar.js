@@ -1,26 +1,21 @@
-// import React from "react";
-// import { Logo, MOBILE_LOGO } from "../utils/constants";
-// import { Link } from "react-router-dom";
+import React from "react";
+import Logo from "../assets/StreamSage.png";
+import { Link } from "react-router-dom";
 
-// const Navbar = () => {
-//   return (
-//     <>
-//       <div className="flex justify-between absolute z-50">
-//         <Link to={"/"}>
-//           <img
-//             className="w-44 hidden md:block md:mx-0"
-//             src={Logo}
-//             alt="netflix-logo"
-//           />
-//           <img
-//             className=" w-[50px] md:hidden mt-5 ml-2 "
-//             src={MOBILE_LOGO}
-//             alt="netflix-logo"
-//           />
-//         </Link>
-//       </div>
-//     </>
-//   );
-// };
+const Navbar = () => {
+  return (
+    <>
+      <div className="flex justify-between absolute z-50">
+        <Link to={"/"}>
+          <img
+            className="w-44 hidden md:block md:mx-0"
+            src={Logo}
+            alt="netflix-logo"
+          />
+        </Link>
+      </div>
+    </>
+  );
+};
 
-// export default Navbar;
+export default Navbar;
