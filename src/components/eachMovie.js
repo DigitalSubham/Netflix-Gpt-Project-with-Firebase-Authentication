@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { API_OPTIONS, IMG_CDN_URL } from "../utils/constants";
+import { API_OPTIONS } from "../utils/constants";
 import Navbar from "./Navbar";
 import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { play } from "../utils/moviesSlice";
+import MovieReviews from "./MovieReviews";
+import MovieStory from "./movieStory";
 
 const EachMovie = () => {
   const [eachMovieData, setEachMovieData] = useState("");
   const playVideo = useSelector((store) => store.movies?.play);
-  const dispatch = useDispatch();
   const [video, setVideo] = useState("");
   const params = useParams();
   const { movieId } = params;
-
-  const handleSound = () => {
-    dispatch(play());
-  };
 
   useEffect(() => {
     async function getEachMovieData() {
@@ -25,7 +20,7 @@ const EachMovie = () => {
         API_OPTIONS
       );
       const json = await data.json();
-      console.log(json);
+      // console.log(json);
       setEachMovieData(json);
     }
     getEachMovieData();
@@ -42,18 +37,18 @@ const EachMovie = () => {
         API_OPTIONS
       );
       const json = await data.json();
-      console.log(json);
+      // console.log(json);
 
-      const filterData = json.results.filter(
-        (video) =>
-          video.type === "Trailer" ||
-          video.type === "Official Trailer" ||
-          video.type === "Teaser" ||
-          video.type === "Featurette" ||
-          video.type.toLowerCase().includes("trailer")
-      );
+      // const filterData = json.results.filter(
+      //   (video) =>
+      //     video.type === "Trailer" ||
+      //     video.type === "Official Trailer" ||
+      //     video.type === "Teaser" ||
+      //     video.type === "Featurette" ||
+      //     video.type.toLowerCase().includes("trailer")
+      // );
 
-      console.log(filterData);
+      // console.log(filterData);
 
       setVideo(json.results[0]);
       // setVideo(filterData);
@@ -64,9 +59,9 @@ const EachMovie = () => {
 
   return (
     <>
-      <div className="hidden md:mt-[10px]  md:block">
+      <div className=" bg-black text-white ">
         <Navbar />
-        <div className="w-screen -mt-24 absolute aspect-video hidden md:block">
+        <div className="w-screen aspect-video flex pt-16 pl-3  ">
           <iframe
             className=""
             width="100%"
@@ -81,56 +76,41 @@ const EachMovie = () => {
             allowFullScreen
           ></iframe>
         </div>
-      </div>
-
-      <div className="absolute hidden md:block top-[0px] h-screen w-screen bg-gradient-to-r from-black">
-        <div className="text-white absolute ml-14 top-[250px] ">
-          <h1 className="font-semiboldbold text-6xl">{eachMovieData.title}</h1>
-          <p className="mt-2 w-[60%]">{eachMovieData.overview}</p>
-          <p className="mt-2 w-[60%]">{eachMovieData.release_date}</p>
-          <p className="mt-2 w-[60%]">{eachMovieData.status}</p>
+        <div className="mx-6 ">
+          <div className="flex">
+            <h1 className="font-semiboldbold text-6xl">
+              {eachMovieData.title}
+            </h1>
+            <div className="flex ml-5">
+              {" "}
+              <p className="px-2 mt-4 w-fit">{eachMovieData.status} on -</p>
+              <p className=" px-2 mt-4 w-fit">{eachMovieData.release_date}</p>
+            </div>
+          </div>
           <div className="flex ml-[-15px] mt-6">
             {eachMovieData?.genres?.map((genre) => {
               return (
                 <p
                   key={genre?.id}
-                  className="rounded-full ml-2 px-4 py-2 bg-brand-charcoal text-white"
+                  className="rounded-full ml-2 px-4 py-2 bg-brand-charcoal "
                 >
                   {genre?.name}
                 </p>
               );
             })}
           </div>
-          <button
-            onClick={handleSound}
-            className="bg-white text-black py-1 md:py-4 px-3 md:px-12 text-xl font-bold rounded-lg hover:opacity-75 hidden md:inline-block "
-          >
-            ▶️ Play
-          </button>
+          <p className="mt-2 w-[50%]">{eachMovieData.overview}</p>
         </div>
-      </div>
-      {/* MOBILE VIEW */}
-      <div className="md:hidden ">
-        <img
-          className=" w-[90%] border-[1px] border-brand-beige mt-8 mx-auto rounded-xl"
-          src={IMG_CDN_URL + eachMovieData?.poster_path}
-          alt="movie poster"
-        />
-
-        <p className="text-sm text-left px-4 py-2 w-[90%] ml-5 mt-8  border-[1px] border-teal-200 rounded-lg text-white">
-          {eachMovieData?.overview}
-        </p>
-        <div className="flex flex-wrap left-4 absolute top-5  mt-6">
-          {eachMovieData?.genres?.map((genre) => {
-            return (
-              <p
-                key={genre?.id}
-                className="rounded-full m-2 px-4 py-2 bg-black text-white"
-              >
-                {genre?.name}
-              </p>
-            );
-          })}
+        <h2 className="text-2xl mx-6 mt-7 text-red-200">
+          {" "}
+          {eachMovieData.title} Movie Reviews form Youtube
+        </h2>
+        <MovieReviews movieName={eachMovieData.title} />
+        <div className=" ">
+          <h2 className="text-2xl mx-6 my-7 text-red-200">
+            Movie Story - (Every info about movie {eachMovieData.title})
+          </h2>
+          <MovieStory movieName={eachMovieData.title} />
         </div>
       </div>
     </>
