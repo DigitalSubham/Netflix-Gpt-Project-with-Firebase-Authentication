@@ -4,7 +4,6 @@ import { GEMINI_API_KEY } from "../utils/constants";
 
 const MovieStory = ({ movieName }) => {
   const [movieInfo, setMovieInfo] = useState(null);
-  REACT_APP_GEMINI_API_KEY = AIzaSyCNGXLtBJKNjtudQ1J7a67kycua8_9ciHs;
   useEffect(() => {
     try {
       const fetchData = async () => {
