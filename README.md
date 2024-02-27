@@ -12,8 +12,6 @@ Welcome to StreamSage, your AI-powered Movie Explorer! StreamSage is a feature-r
 
 ## Demo
 
- 
-
 ## Technologies Used
 
 - **Frontend:** ReactJS
@@ -24,10 +22,10 @@ Welcome to StreamSage, your AI-powered Movie Explorer! StreamSage is a feature-r
 
 ## Getting Started
 
-
 ### Installation
 
 1. Clone the repository.
+
    ```
    bash
    git clone  https://github.com/DigitalSubham/StreamSage-AI-Movie-Explorer
@@ -44,6 +42,7 @@ Welcome to StreamSage, your AI-powered Movie Explorer! StreamSage is a feature-r
    ```
 
 ### Future Enhancements
+
 In the future, we plan to enhance the project with the following features:
 
 - User Profiles: Allow users to create profiles, save favorite movies, and customize preferences.
