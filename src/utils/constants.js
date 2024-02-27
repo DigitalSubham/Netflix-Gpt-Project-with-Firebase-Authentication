@@ -20,8 +20,7 @@ export const SUPPORTED_LANGUAGES = [
 ];
 
 export const OPENAI_KEY = process.env.REACT_APP_OPENAI_KEY;
-// console.log(OPENAI_KEY);
+REACT_APP_GEMINI_API_KEY = AIzaSyCNGXLtBJKNjtudQ1J7a67kycua8_9ciHs;
 
 export const GOOGLE_API_KEY = process.env.REACT_APP_GOOGLE_API_KEY;
 export const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY;
-console.log("gem", GEMINI_API_KEY);
